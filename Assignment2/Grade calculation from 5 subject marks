@@ -1,0 +1,12 @@
+int[] marks = {85, 90, 78, 88, 92};
+int total = 0;
+for (int m : marks) total += m;
+double avg = total / 5.0;
+String grade;
+if (avg >= 90) grade = "A+";
+else if (avg >= 80) grade = "A";
+else if (avg >= 70) grade = "B+";
+else if (avg >= 60) grade = "B";
+else if (avg >= 50) grade = "C";
+else grade = "Fail";
+System.out.println("Grade: " + grade);
