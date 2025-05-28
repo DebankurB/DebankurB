@@ -1,0 +1,4 @@
+int num = 98;
+if (num >= 0 && num < 10) System.out.println("Single digit");
+else if (num < 100) System.out.println("Two digit");
+else System.out.println("Three or more digits");
