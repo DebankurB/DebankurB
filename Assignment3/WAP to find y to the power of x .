@@ -1,0 +1,13 @@
+import java.util.Scanner;
+public class PowerCalculation {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        double y = sc.nextDouble();
+        int x = sc.nextInt();
+        double result = 1;
+        for (int i = 0; i < x; i++) {
+            result *= y;
+        }
+        System.out.println(result);
+    }
+}
