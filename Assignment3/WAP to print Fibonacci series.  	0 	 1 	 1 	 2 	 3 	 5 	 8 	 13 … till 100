@@ -1,0 +1,13 @@
+public class FibonacciSeries {
+    public static void main(String[] args) {
+        int a = 0, b = 1;
+        System.out.print(a + "\t" + b + "\t");
+        int next = a + b;
+        while (next <= 100) {
+            System.out.print(next + "\t");
+            a = b;
+            b = next;
+            next = a + b;
+        }
+    }
+}
