@@ -1,0 +1,22 @@
+public class Area {
+
+    double calculate(double radius) {
+        return 3.14 * radius * radius;
+    }
+
+    double calculate(double length, double width) {
+        return length * width;
+    }
+
+    double calculate(int base, int height) {
+        return 0.5 * base * height;
+    }
+
+    public static void main(String[] args) {
+        Area a = new Area();
+
+        System.out.println("Area of Circle: " + a.calculate(5.0));
+        System.out.println("Area of Rectangle: " + a.calculate(4.0, 6.0));
+        System.out.println("Area of Triangle: " + a.calculate(10, 5));
+    }
+}
