@@ -1,0 +1,19 @@
+public class Area {
+    final double PI = 3.14;
+
+    double areaOfCircle(double radius) {
+        return PI * radius * radius;
+    }
+
+    double areaOfCylinder(double radius, double height) {
+        return 2 * PI * radius * (radius + height);
+    }
+
+    public static void main(String[] args) {
+        Area a = new Area();
+        double circleArea = a.areaOfCircle(5);
+        double cylinderArea = a.areaOfCylinder(5, 10);
+        System.out.println("Area of Circle: " + circleArea);
+        System.out.println("Area of Cylinder: " + cylinderArea);
+    }
+}
