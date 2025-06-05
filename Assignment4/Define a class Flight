@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+public class Flight {
+    private int flightNumber;
+    private String destination;
+    private double distance;
+    private double fuel;
+
+    private void calFuel() {
+        if (distance <= 1000)
+            fuel = 500;
+        else if (distance <= 2000)
+            fuel = 1100;
+        else
+            fuel = 2200;
+    }
+
+    public void feedInfo() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter Flight Number: ");
+        flightNumber = sc.nextInt();
+        sc.nextLine();
+        System.out.print("Enter Destination: ");
+        destination = sc.nextLine();
+        System.out.print("Enter Distance: ");
+        distance = sc.nextDouble();
+        calFuel();
+    }
+
+    public void showInfo() {
+        System.out.println("Flight Number: " + flightNumber);
+        System.out.println("Destination: " + destination);
+        System.out.println("Distance: " + distance);
+        System.out.println("Fuel Required: " + fuel);
+    }
+
+    public static void main(String[] args) {
+        Flight f = new Flight();
+        f.feedInfo();
+        f.showInfo();
+    }
+}
