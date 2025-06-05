@@ -1,0 +1,4 @@
+Create a class InfoDisplay with a method show() that:
+- Displays an integer
+- Displays a string
+- Displays a string and an integer
