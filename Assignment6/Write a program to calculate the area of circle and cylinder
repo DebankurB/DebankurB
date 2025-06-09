@@ -1,0 +1,23 @@
+class Area {
+    final double PI = 3.14;
+    double radius, height;
+
+    Area(double radius, double height) {
+        this.radius = radius;
+        this.height = height;
+    }
+
+    double areaOfCircle() {
+        return PI * radius * radius;
+    }
+
+    double areaOfCylinder() {
+        return PI * radius * radius * height;
+    }
+
+    public static void main(String[] args) {
+        Area a = new Area(5.0, 10.0);
+        System.out.println("Area of Circle: " + a.areaOfCircle());
+        System.out.println("Area of Cylinder: " + a.areaOfCylinder());
+    }
+}
