@@ -1,0 +1,21 @@
+class Test {
+    int num;
+
+    Test(int num) {
+        this.num = num;
+    }
+
+    int getReverse() {
+        int rev = 0, n = num;
+        while (n > 0) {
+            rev = rev * 10 + n % 10;
+            n /= 10;
+        }
+        return rev;
+    }
+
+    public static void main(String[] args) {
+        Test t = new Test(12345);
+        System.out.println("Reverse: " + t.getReverse());
+    }
+}
