@@ -1,0 +1,21 @@
+class BankAccount {
+    final void generateAccountNumber() {
+        System.out.println("Account number generated");
+    }
+}
+
+class SavingsAccount extends BankAccount {
+    // The following method causes a compilation error
+    // because generateAccountNumber() is final in the superclass
+
+    // void generateAccountNumber() {
+    //     System.out.println("Overridden account number generator");
+    // }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        SavingsAccount sa = new SavingsAccount();
+        sa.generateAccountNumber();
+    }
+}
