@@ -1,0 +1,32 @@
+interface Instrument {
+    void play();
+}
+
+interface StringInstrument extends Instrument {
+    void tuneStrings();
+}
+
+class Guitar implements StringInstrument {
+    public void play() {
+        System.out.println("Playing the guitar");
+    }
+
+    public void tuneStrings() {
+        System.out.println("Tuning the guitar strings");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Guitar g = new Guitar();
+        g.tuneStrings();
+        g.play();
+
+        Instrument i = g;
+        i.play();
+
+        StringInstrument si = g;
+        si.tuneStrings();
+        si.play();
+    }
+}
