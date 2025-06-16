@@ -1,0 +1,47 @@
+package packone;
+
+public class AccessDemo {
+    public int publicVar = 10;
+    private int privateVar = 20;
+    protected int protectedVar = 30;
+    int defaultVar = 40;
+
+    public void display() {
+        System.out.println("Inside packone.AccessDemo:");
+        System.out.println("publicVar = " + publicVar);
+        System.out.println("privateVar = " + privateVar);
+        System.out.println("protectedVar = " + protectedVar);
+        System.out.println("defaultVar = " + defaultVar);
+    }
+}
+
+
+package packtwo;
+
+import packone.AccessDemo;
+
+public class TestAccess extends AccessDemo {
+    public static void main(String[] args) {
+        AccessDemo obj = new AccessDemo();
+
+        System.out.println("From packtwo.TestAccess:");
+
+        // Accessible
+        System.out.println("publicVar: " + obj.publicVar); // ✅ OK
+
+        // Not accessible (private in another class)
+        // System.out.println("privateVar: " + obj.privateVar); // ❌ Error
+
+        // Not accessible (protected, but using object of superclass, not subclass reference)
+        // System.out.println("protectedVar: " + obj.protectedVar); // ❌ Error
+
+        // Not accessible (default/package-private)
+        // System.out.println("defaultVar: " + obj.defaultVar); // ❌ Error
+
+        // Using subclass reference
+        TestAccess test = new TestAccess();
+        System.out.println("protectedVar (via inheritance): " + test.protectedVar); // ✅ OK
+    }
+}
+
+
