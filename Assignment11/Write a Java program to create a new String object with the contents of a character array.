@@ -1,0 +1,9 @@
+public class CharArrayToString {
+    public static void main(String[] args) {
+        char[] charArray = { 'H', 'e', 'l', 'l', 'o', ' ', 'J', 'a', 'v', 'a' };
+
+        String str = new String(charArray);
+
+        System.out.println("String created from character array: " + str);
+    }
+}
