@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class ArrayElementFetcher {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter number of elements: ");
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+
+        System.out.println("Enter " + n + " integers:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        System.out.print("Enter position to access (0-based index): ");
+        int pos = sc.nextInt();
+
+        try {
+            System.out.println("Element at position " + pos + ": " + arr[pos]);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Error: Invalid position. Array index out of bounds.");
+        }
+    }
+}
