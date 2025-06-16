@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class ReplaceCatDog {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a sentence (with 'cat' and 'dog'): ");
+        String sentence = sc.nextLine();
+
+        System.out.print("Enter cat's name: ");
+        String catName = sc.nextLine();
+
+        System.out.print("Enter dog's name: ");
+        String dogName = sc.nextLine();
+
+        String updatedSentence = sentence.replaceAll("(?i)\\bcat\\b", catName);
+        updatedSentence = updatedSentence.replaceAll("(?i)\\bdog\\b", dogName);
+
+        System.out.println("Updated Sentence: " + updatedSentence);
+    }
+}
