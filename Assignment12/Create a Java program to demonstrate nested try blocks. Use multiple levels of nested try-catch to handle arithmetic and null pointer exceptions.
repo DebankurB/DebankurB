@@ -1,0 +1,31 @@
+public class NestedTryDemo {
+    public static void main(String[] args) {
+        try {
+            System.out.println("Outer try block started");
+
+            try {
+                // Arithmetic Exception: divide by zero
+                int a = 10;
+                int b = 0;
+                int result = a / b;
+                System.out.println("Result: " + result);
+            } catch (ArithmeticException e) {
+                System.out.println("Caught ArithmeticException: " + e.getMessage());
+            }
+
+            try {
+                // Null Pointer Exception
+                String str = null;
+                System.out.println("Length of string: " + str.length());
+            } catch (NullPointerException e) {
+                System.out.println("Caught NullPointerException: " + e.getMessage());
+            }
+
+            System.out.println("Outer try block completed");
+        } catch (Exception e) {
+            System.out.println("Caught general exception: " + e.getMessage());
+        }
+
+        System.out.println("Program continues after exception handling.");
+    }
+}
