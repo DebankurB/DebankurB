@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class SquareRootDemo {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String input;
+
+        try {
+            System.out.print("Enter an integer: ");
+            input = sc.nextLine();
+
+            int number = Integer.parseInt(input);
+
+            if (number < 0) {
+                System.out.println("Square root of a negative number is not real.");
+            } else {
+                double result = Math.sqrt(number);
+                System.out.println("Square root of " + number + " is: " + result);
+            }
+
+        } catch (NumberFormatException e) {
+            System.out.println("Error: Invalid input. Please enter a valid integer.");
+        } finally {
+            System.out.println("Execution completed. Thank you!");
+        }
+    }
+}
