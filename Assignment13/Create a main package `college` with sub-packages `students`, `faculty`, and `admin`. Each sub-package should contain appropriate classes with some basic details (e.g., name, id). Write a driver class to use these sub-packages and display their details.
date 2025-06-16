@@ -1,0 +1,51 @@
+package college.students;
+
+public class Student {
+    private String name;
+    private int id;
+
+    public Student(String name, int id) {
+        this.name = name;
+        this.id = id;
+    }
+
+    public void display() {
+        System.out.println("Student Name: " + name);
+        System.out.println("Student ID: " + id);
+    }
+}
+
+package college.faculty;
+
+public class Faculty {
+    private String name;
+    private int id;
+
+    public Faculty(String name, int id) {
+        this.name = name;
+        this.id = id;
+    }
+
+    public void display() {
+        System.out.println("Faculty Name: " + name);
+        System.out.println("Faculty ID: " + id);
+    }
+}
+
+
+package college.admin;
+
+public class Admin {
+    private String name;
+    private int id;
+
+    public Admin(String name, int id) {
+        this.name = name;
+        this.id = id;
+    }
+
+    public void display() {
+        System.out.println("Admin Name: " + name);
+        System.out.println("Admin ID: " + id);
+    }
+}
