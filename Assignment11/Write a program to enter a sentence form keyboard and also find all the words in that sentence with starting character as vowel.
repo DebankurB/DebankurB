@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class VowelStartWords {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a sentence: ");
+        String sentence = sc.nextLine();
+
+        String[] words = sentence.split("\\s+");
+
+        System.out.println("Words starting with a vowel:");
+        for (String word : words) {
+            if (word.length() > 0) {
+                char firstChar = Character.toLowerCase(word.charAt(0));
+                if (firstChar == 'a' || firstChar == 'e' || firstChar == 'i' ||
+                    firstChar == 'o' || firstChar == 'u') {
+                    System.out.println(word);
+                }
+            }
+        }
+    }
+}
