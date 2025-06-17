@@ -1,0 +1,70 @@
+package utils;
+
+public class StringUtils {
+    public static String reverse(String input) {
+        return new StringBuilder(input).reverse().toString();
+    }
+
+    public static String capitalize(String input) {
+        if (input == null || input.isEmpty()) return input;
+        return input.substring(0, 1).toUpperCase() + input.substring(1);
+    }
+}
+
+
+package utils;
+
+public class MathUtils {
+    public static int factorial(int n) {
+        if (n < 0) throw new IllegalArgumentException("Negative number");
+        int result = 1;
+        for (int i = 2; i <= n; i++) result *= i;
+        return result;
+    }
+
+    public static boolean isPrime(int n) {
+        if (n <= 1) return false;
+        for (int i = 2; i <= Math.sqrt(n); i++)
+            if (n % i == 0) return false;
+        return true;
+    }
+}
+
+
+package utils;
+
+public class ValidationUtils {
+    public static boolean isValidEmail(String email) {
+        return email != null && email.matches("^[\\w.-]+@[\\w.-]+\\.\\w{2,}$");
+    }
+
+    public static boolean isNumeric(String input) {
+        if (input == null) return false;
+        return input.matches("\\d+");
+    }
+}
+
+
+import utils.StringUtils;
+import utils.MathUtils;
+import utils.ValidationUtils;
+
+public class MainApp {
+    public static void main(String[] args) {
+        // StringUtils
+        String name = "john";
+        System.out.println("Capitalized: " + StringUtils.capitalize(name));
+        System.out.println("Reversed: " + StringUtils.reverse(name));
+
+        // MathUtils
+        int number = 5;
+        System.out.println("Factorial of " + number + ": " + MathUtils.factorial(number));
+        System.out.println(number + " is prime? " + MathUtils.isPrime(number));
+
+        // ValidationUtils
+        String email = "john.doe@example.com";
+        System.out.println("Valid email? " + ValidationUtils.isValidEmail(email));
+        System.out.println("Is '12345' numeric? " + ValidationUtils.isNumeric("12345"));
+        System.out.println("Is '12abc' numeric? " + ValidationUtils.isNumeric("12abc"));
+    }
+}
