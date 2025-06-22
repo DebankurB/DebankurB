@@ -1,0 +1,75 @@
+import java.util.Scanner;
+
+class Movie {
+    String title;
+    double price;
+    int availableSeats;
+
+    public Movie(String title, double price, int availableSeats) {
+        this.title = title;
+        this.price = price;
+        this.availableSeats = availableSeats;
+    }
+
+    public void displayDetails(int index) {
+        System.out.println(index + ". " + title + " - ₹" + price + " - Seats Left: " + availableSeats);
+    }
+}
+
+public class MovieTicketBookingSystem {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Movie list
+        Movie[] movies = {
+            new Movie("Dune: Part Two", 250.0, 30),
+            new Movie("Oppenheimer", 300.0, 20),
+            new Movie("The Batman", 200.0, 25)
+        };
+
+        System.out.println("🎬 Welcome to Movie Ticket Booking System 🎟️");
+        while (true) {
+            System.out.println("\nAvailable Movies:");
+            for (int i = 0; i < movies.length; i++) {
+                movies[i].displayDetails(i + 1);
+            }
+
+            System.out.print("\nEnter movie number to book (0 to exit): ");
+            int choice = sc.nextInt();
+
+            if (choice == 0) {
+                System.out.println("Thank you for using the system. Goodbye!");
+                break;
+            }
+
+            if (choice < 1 || choice > movies.length) {
+                System.out.println("Invalid movie selection.");
+                continue;
+            }
+
+            Movie selected = movies[choice - 1];
+            System.out.print("Enter number of tickets: ");
+            int tickets = sc.nextInt();
+
+            if (tickets <= 0) {
+                System.out.println("Invalid number of tickets.");
+                continue;
+            }
+
+            if (tickets > selected.availableSeats) {
+                System.out.println("Only " + selected.availableSeats + " seats available. Try again.");
+                continue;
+            }
+
+            double totalPrice = tickets * selected.price;
+            selected.availableSeats -= tickets;
+
+            System.out.println("\n✅ Booking Confirmed!");
+            System.out.println("Movie: " + selected.title);
+            System.out.println("Tickets: " + tickets);
+            System.out.println("Total Price: ₹" + totalPrice);
+        }
+
+        sc.close();
+    }
+}
