@@ -1,0 +1,49 @@
+CREATE DATABASE BDS;
+
+USE BDS;
+
+CREATE TABLE Employee (
+    empCode INT PRIMARY KEY,
+    empName VARCHAR(30),
+    empEmail VARCHAR(40),
+    empPassword VARCHAR(20),
+    gender VARCHAR(10),
+    DOB VARCHAR(20),
+    mobileNo BIGINT,
+    Role VARCHAR(20)
+);
+
+CREATE TABLE Project (
+    projectID INT PRIMARY KEY,
+    projectName VARCHAR(30),
+    SDate VARCHAR(30),
+    EDate VARCHAR(30),
+    projectDec VARCHAR(200)
+);
+
+CREATE TABLE AssignProject (
+    projectID INT,
+    empCode INT,
+    FOREIGN KEY (projectID) REFERENCES Project(projectID),
+    FOREIGN KEY (empCode) REFERENCES Employee(empCode)
+);
+
+CREATE TABLE BugType (
+    bugCode INT PRIMARY KEY,
+    bugCatgory VARCHAR(30),
+    bugSeverty VARCHAR(20)
+);
+
+CREATE TABLE BugReport (
+    bugNo INT PRIMARY KEY,
+    bugCode INT,
+    projectID INT,
+    TCode INT,
+    ECode INT,
+    status VARCHAR(20),
+    bugDes VARCHAR(100),
+    FOREIGN KEY (bugCode) REFERENCES BugType(bugCode),
+    FOREIGN KEY (projectID) REFERENCES Project(projectID),
+    FOREIGN KEY (TCode) REFERENCES Employee(empCode),
+    FOREIGN KEY (ECode) REFERENCES Employee(empCode)
+);
