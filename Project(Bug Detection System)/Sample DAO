@@ -1,0 +1,28 @@
+package dao;
+
+import db.DBConnection;
+import model.Employee;
+
+import java.sql.*;
+
+public class EmployeeDAO {
+    public boolean addEmployee(Employee emp) {
+        try {
+            Connection con = DBConnection.getConnection();
+            String query = "INSERT INTO Employee VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setInt(1, emp.getEmpCode());
+            ps.setString(2, emp.getEmpName());
+            ps.setString(3, emp.getEmpEmail());
+            ps.setString(4, emp.getEmpPassword());
+            ps.setString(5, emp.getGender());
+            ps.setString(6, emp.getDOB());
+            ps.setLong(7, emp.getMobileNo());
+            ps.setString(8, emp.getRole());
+            return ps.executeUpdate() > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+}
